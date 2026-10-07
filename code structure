@@ -1,0 +1,415 @@
+#include <stdio.h>
+int main(){
+    
+    //INTERNET CAFE INTRO VARIABLES
+    int enterIC, selectionM, internetM, drinksM, foodM;
+    int membershipcard;
+    float UICD;
+    
+
+    //     UICD    =      " UNIVERSAL INTERNET 15% DISCOUNT "
+    //     benefits of membership card
+    //         -  You get a 15%% discount off for each purchase for 1 months
+    //         -  The membership card costs ₱250 
+    //         -  monthly renewal costs ₱200
+   
+    
+    //INTERNT VARIABLES
+    int gamingpc, nongamingpc, cubicle;
+    int hours, minutes, pctype,  timeduration;
+    int order, confirm, amnt;
+
+    float php, totalphp, totaltime, gamingpcfee, nongamingpcfee;
+
+    char *duration, display [50];
+
+    //DRINKS VARIABLES
+    int item;
+    int drefilld1, drefilld2, drefilld3;
+    int refillcc, refillnc, refillnoc, prefillc;
+    float dbase, ddiscount, ddiscounted, dtotal, dtotfinal;
+
+
+
+    //TAMBAYAN VARIABLES
+    int amountPH;
+
+    //     amountPH  =      " amount per head "
+
+ //drinks section coded by fritz
+ //Code Vocabulary_________________________________________________________________
+
+ //    -      drefilld1       =       drink refill decision 1
+ //    -      drefilld2       =       drink refill decision 2
+ //    -      drefilld3       =       drink refill decision 3
+ //    -      refillcc        =       refill card charge option
+ //    -      refillnc        =       new refill card option
+ //    -      refillnoc       =       no refill card option
+ //    -      prefillc        =       purchased refill card 
+ //    -      dbase           =       base price of drink
+ //    -      ddiscount       =       discount of drink
+ //    -      ddiscounted     =       discounted price of drink
+ //    -      dtotal          =       total price of drinks
+ //    -      dtotfinal       =       final total price of drinks
+
+
+
+ //Introduction of inputing a value of user /coded by Sam/
+
+    printf("====WELCOME TO THE INTERNET CAFE====\n");
+    printf("  ===Powered by GROUP-7 Members===\n");
+    printf("\n===What would you like to do inside?====\n");
+    printf("0 -- Exit \t1 -- Enter Internet Cafe\n");
+    printf(">>>Enter your decision: ");
+    scanf("%d", &enterIC); 
+
+    if (enterIC <= 0) {
+        printf("You chose exit");
+        return 0;
+    
+    } 
+    else if (enterIC == 1) {
+        printf("\n===Do you have a store membership card?===\n");
+        printf("(0 -- No   or   1 -- Yes)\n");
+        printf("\n>>>Enter value: ");
+        scanf("%d", &membershipcard);
+        if (membershipcard < 1 || membershipcard > 2) {
+            printf("ERROR: Invalid input\n");
+            return 0;
+        }
+        
+        printf("        Which menu would you like to use?\n");
+        printf("1 -- Use Internet   2 -- Drinks   3 -- Snacks   4 -- Hangout");
+        printf("          >>>\n");
+        scanf("%d", selectionM);
+        if (selectionM <= 0 || selectionM > 4) {
+             printf("ERROR: INPUT ERROR");
+             return 0;
+            }
+    }   
+    
+    if (selectionM == 1) {
+        printf("\n===Choose what type of PC want to use===\n");
+        printf("1--Gaming PC \t 2--Non-Gaming PC\n");
+        printf("\n>>>Enter your PC type: ");
+        scanf("%d", &pctype);
+    }
+
+    if (pctype < 1 || pctype > 2) {
+        printf("ERROR: Invalid selection input\n");
+        return 0;
+    }
+
+    printf("\n===Choose how many hours you want to use the PC===");
+    printf("\n1 -- (1 hour) \t2 -- (2 hours) \t3 -- (3 hours) \t4 -- (6 hours) \t5 -- (12 hours)\n");
+    printf("\n>>>Enter your time duration: ");
+    scanf("%d", &timeduration);
+
+    if (timeduration <= 0 || timeduration > 6) {
+        printf("ERROR: Invalid hour value");
+
+    return 0;
+    }
+
+    printf("\n===Cubicle===\n");
+    printf(">>>Enter the vacant cubicle number: ");
+    scanf("%d", &cubicle);
+
+    if (cubicle < 1) {
+        printf("\n====Go to the cashier====\n");
+        printf("Enter the cubicle number given by the cashier: ");
+        scanf("%d", &cubicle);
+    } else if (cubicle < 0) {
+        printf("ERROR: Invalid Cubicle Input");
+
+    return 0;
+}
+
+
+
+if (selectionM == 2) {
+    //Drinks Menu_________________________________________________________________
+
+printf("==================== Drinks_Menu ====================\n");
+printf("---------------------_ Coffee _----------------------\n");
+printf("Item No.1 - Mocha - ₱85\n");
+printf("Item No.2 - Cappuccino - ₱75\n");
+printf("Item No.3 - Latte - ₱75\n");
+printf("Item No.4 - Iced Coffee - ₱65\n");
+printf("Item No.5 - Espresso - ₱60\n");
+printf("Item No.6 - Americano - ₱55\n");
+printf("-----------------------_ Tea _-----------------------\n");
+printf("Item No.7 - Milk Tea - ₱70\n");
+printf("Item No.8 - Iced Tea - ₱45\n");
+printf("Item No.9 - Calamnsi Tea - ₱45\n");
+printf("Item No.10 - Green Tea - ₱40\n");
+printf("Item No.11 - Black Tea - ₱40\n");
+printf("--------------------_ Soft_Drinks _------------------\n");
+printf("Item No.12 - Coca Cola - ₱30\n");
+printf("Item No.13 - Pepsi - ₱30\n");
+printf("Item No.14 - Sprite - ₱30\n");
+printf("Item No.15 - Mountain Dew - ₱30\n");
+printf("Item No.16 - Royal - ₱30\n");
+printf("-------------------_ Energy_Drinks _-----------------\n");
+printf("Item No.17 - Monster Energy - ₱110\n");
+printf("Item No.18 - Red Bull - ₱100\n");
+printf("Item No.19 - Cobra - ₱40\n");
+printf("Item No.20 - Sting - ₱40\n");
+printf("=====================================================\n\n");
+
+//Phase 1 ordering
+    
+printf("              What would you like to order?\n");
+printf("                     >>>   ");
+scanf("%d", &item);
+
+if(item > 20 || item < 1)
+{
+    printf("ERROR: INVALID INPUT");
+    return 0;
+}
+
+//Phase 2 Decisions (note: gi kapoy ko aning pag ayo sa mga brackets - Fritz)
+//___________________________________________________________________________
+
+printf("            Would you like refill for your drink?\n");
+printf("                   (1 - yes, 2 - no)\n");
+printf("                     >>>   ");
+scanf("%d", &drefilld1);
+
+if(drefilld1 > 2 || drefilld1 < 1) {
+    printf("ERROR: INVALID INPUT");
+    return 0;
+}
+    
+if(drefilld1 == 1) {
+
+    printf("               Do you have a membership card?\n");
+    printf("                   (1 - yes, 2 - no)\n");
+    printf("                     >>>   ");
+    scanf("%d", &drefilld2);
+
+    if(drefilld2 > 2 || drefilld2 < 1) {
+        printf("ERROR: INVALID INPUT");
+        return 0;
+    }
+
+    if(drefilld2 == 1) {
+
+        printf("           How much are you planning to refill?\n");
+        printf("                     >>>   ");
+        scanf("%d", &refillcc); 
+
+        if(refillcc > 0) {
+            ddiscount = 0.15;
+        }
+
+        if(refillcc <= 0) {
+            printf("ERROR: NGANO KA NAG INGON GUSTO KA MAG REFILL KUNG DLI MAN DIAY KA GUSTO!!!");
+            return 0;
+        }
+    }
+
+    if(drefilld2 == 2) {
+
+        printf("            Would you like to buy a membership card?\n");
+        printf("     You get a 15%% discount for each refill for 3 months\n");
+        printf("               The refill card costs ₱250\n");
+        printf("                    (1 - yes, 2 - no)\n");
+        printf("                     >>>   ");
+        scanf("%d", &drefilld3);
+        if(drefilld3 > 2 || drefilld3 < 1) {
+            printf("ERROR: INVALID INPUT");
+            return 0;
+        }
+        if(drefilld3 == 1) {prefillc = 250;}
+        else {prefillc = 0;}
+
+        if(drefilld3 == 1) {ddiscount = 0.15;}
+        else {ddiscount = 0;}
+
+        if(drefilld3 == 1) {
+
+            printf("             How much are you planning to refill?\n");
+            printf("                     >>>   ");
+            scanf("%d", &refillnc);
+
+            if(refillnc <= 0) {
+                printf("ERROR: NGANO KA NAG INGON GUSTO KA MAG REFILL KUNG DLI MAN DIAY KA GUSTO!!!");
+                return 0;
+            }
+        }
+
+        else {
+
+            printf("          Alright, how much would you like to refill still?\n");
+            printf("                     >>>   ");
+            scanf("%d", &refillnoc);
+
+            if(refillnoc <= 0) {
+                printf("ERROR: NGANO KA NAG INGON GUSTO KA MAG REFILL KUNG DLI MAN DIAY KA GUSTO!!!");
+                return 0;
+            }
+        }
+    }
+}
+
+
+//Calculating base values from inputs__________________________________________
+
+if(item == 1) {dbase = 85;}
+else if (item == 2) {dbase = 75;}
+else if (item == 3) {dbase = 75;}
+else if (item == 4) {dbase = 65;}
+else if (item == 5) {dbase = 60;}
+else if (item == 6) {dbase = 55;}
+else if (item == 7) {dbase = 70;}
+else if (item == 8) {dbase = 45;}
+else if (item == 9) {dbase = 45;}
+else if (item == 10) {dbase = 40;}
+else if (item == 11) {dbase = 40;}
+else if (item == 12) {dbase = 30;}
+else if (item == 13) {dbase = 30;}
+else if (item == 14) {dbase = 30;}
+else if (item == 15) {dbase = 30;}
+else if (item == 16) {dbase = 30;}
+else if (item == 17) {dbase = 110;}
+else if (item == 18) {dbase = 100;}
+else if (item == 19) {dbase = 40;}
+else {dbase = 40;}
+
+
+//Calculating branch from values__________________________________________
+
+if (drefilld1 == 1 && drefilld2 == 1 && refillcc > 0) {
+    dtotal = dbase * refillcc;
+    ddiscounted = ddiscount * dtotal;
+    dtotfinal = dtotal - ddiscounted;
+}
+else if (drefilld1 == 1 && drefilld2 == 2 && drefilld3 == 1 && refillnc > 0) {
+    dtotal = dbase * refillnc;
+    ddiscounted = ddiscount * dtotal;
+    dtotfinal = dtotal- ddiscounted;
+}
+else if (drefilld1 == 1 && drefilld2 == 2 && drefilld3 == 2 && refillnoc > 0) {
+    dtotfinal = dbase * refillnoc;
+}
+else {
+    dtotfinal = dbase;
+}
+
+
+
+//Debugging_____________________________________________________________________
+
+printf("%d\n", item);
+printf("%d\n", drefilld1);
+printf("%d\n", drefilld2);
+printf("%d\n", drefilld3);
+printf("%d\n", refillcc);
+printf("%d\n", refillnc);
+printf("%d\n", refillnoc);
+printf("%d\n", prefillc);
+printf("%.2f\n", dbase);
+printf("%.2f\n", ddiscount);
+printf("%.2f\n", ddiscounted);
+printf("%.2f\n", dtotal);
+printf("%.2f\n", dtotfinal);
+
+return 0;
+
+}
+
+
+
+if (selectionM == 3) {
+     //David's food
+    printf("CHOOSE THE NUMBER OF YOUR ORDER FROM THE FOLLOWING: \n 1. ICE CREAM SANDWICH \n 2. HAM AND CHEESE SANDWICH \n 3. PEPPERONI PIZZA \n ");
+    scanf("%d", &order);
+
+    if (order < 1) {
+        printf("INVALID ORDER: PLEASE CHOOSE AN AVAILABLE ORDER");
+
+        return 0;
+    } else if (order > 3) {
+        printf("INVALID ORDER: PLEASE CHOOSE AN AVAILABLE ORDER");
+
+        return 0;
+    }
+
+    if (order == 1) {
+        printf("ICE CREAM SANDWICH (30PHP) \n CONFIRM(1)/CANCEL(2) ORDER: ");
+        scanf("%d", &confirm);
+        printf("PLEASE ENTER AMOUNT (20 MAX):");
+        scanf("%d", &amnt);
+        php = 30;
+        sprintf(display, "ICE CREAM SANDWICH");
+        totalphp = php * amnt;
+        
+    } else if (order == 2) {
+        printf("HAM AND CHEESE SANDWICH (25PHP) \n CONFIRM(1)/CANCEL(2): ");
+        scanf("%d", &confirm);
+        printf("PLEASE ENTER AMOUNT (20 MAX):");
+        scanf("%d", &amnt);
+        php = 25;
+        sprintf(display, "HAM AND CHEESE SANDWICH");
+        totalphp = php * amnt;
+
+    } else if (order == 3) {
+        printf("PEPPERONI PIZZA (60PHP) \n CONFIRM(1)/CANCEL(2): ");
+        scanf("%d", &confirm);
+        printf("PLEASE ENTER AMOUNT (20 MX):");
+        scanf("%d", &amnt);
+        php = 60;
+        sprintf(display, "PEPPERONI PIZZA");
+        totalphp = php * amnt;
+
+    }
+
+    if (amnt < 1 || amnt > 20) {
+        printf("INVALID INPUT: INPUT TOO LOW/HIGH");
+
+        return 0;
+    }
+
+    if (confirm == 1) {
+        printf("ORDER SUCCESSFUL: PLEASE CONTINUE TO CHECKOUT\n");
+    } else if (confirm == 2) {
+        printf("ORDER CANCELLED");
+
+        return 0;
+    } else {
+        printf("INVALID INPUT \n");
+
+        return 0;
+    }
+
+    printf("\n ------- ORDER --------- \n");
+    printf("ORDER: %s \n", display);
+    printf("ORDER AMOUNT: %d \n", amnt);
+    printf("COST PER ORDER: %.2f \n", php);
+    printf("TOTAL COST: %.2fphp \n", totalphp);
+    printf("THANK YOU FOR ORDERING! \n");
+
+    return 0;
+}
+
+
+
+if (selectionM == 4) {
+
+    printf("        \n====HANGOUT RATE====\n");
+        printf("===Fixed price: Php 50.00/each for 3 hours===\n");
+        printf("You can leave anytime of your choice\n");
+        printf("\nHow many of you will hangout: ");
+        scanf("%d", amountPH);
+        if (amountPH <= 0)
+        {
+            printf("ERROR: You cannot enter nothing");
+            return 0;
+        } 
+        else {printf("");}
+
+}//Tambayan menu
+return 0;
+}
