@@ -9,7 +9,7 @@
 ### Prudente, Fritz
 ### Requierme, Sam
 
-![alt](<img width="629" height="576" alt="Screenshot 2026-10-09 221810" src="https://github.com/user-attachments/assets/ca87077a-1106-4bd4-9c60-38fdfffbfd6c" />)
+![Internet Cafe Shop System Screenshot](<img width="629" height="576" alt="Screenshot 2026-10-09 221810" src="https://github.com/user-attachments/assets/ca87077a-1106-4bd4-9c60-38fdfffbfd6c" />)
 
 
 ***Program Language in C***
