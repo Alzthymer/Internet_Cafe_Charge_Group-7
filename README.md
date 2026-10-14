@@ -575,7 +575,7 @@ printf("Amount Discounted: Php %.2f\n", discountedamount);
 printf("Total Amount: Php %.2f\n", finalamount);
 printf("=================================================\n");
 printf("          Cubicle Number: %d\n", cubicle);
-
+}
 
 
 
