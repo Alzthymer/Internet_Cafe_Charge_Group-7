@@ -21,17 +21,6 @@
 #include <stdio.h>
 int main () {
 
-//this system created by Group-7 members
-
-/*members:
-
-Abbu, Mike Jefferson
-Colinares, David Khael
-Prudente, Fritz
-Requierme, Sam
-
-*/
-
 // Part 1 INTRODUCTION
     int pctype = 0;
     int timeduration = 0;
@@ -70,15 +59,15 @@ Requierme, Sam
     //Part 4 CATEGORY
     char drinktype[100];     //type of drink the user wants to buy
     char foodtype[100];      //type of food the user wants to buy
-    char *typeofpc;         //indicates the type of computer the user wants to use
-    char *duration;         //how long is the user use
-    char *timechosen;       //user's choice of time duration
-    char *addonchoice;      //the addon decision wether the user wants to add drinks or food or both or none
+    char *typeofpc;     //indicates the type of computer the user wants to use
+    char *duration;     //how long is the user use
+    char *timechosen;   //user's choice of time duration
+    char *addonchoice;  //the addon decision wether the user wants to add drinks or food or both or none
 
     //     pctype  =      " a decision variable if you want to use gaming or non-gaming computer "
 
-    //the introduction of cafe coded by Sam
-    printf("====WELCOME TO THE INTERNET CAFE====\n"); 
+
+    printf("====WELCOME TO THE INTERNET CAFE====\n");
     printf("  ===Powered by GROUP-7 Members===\n");
     printf("\n\n\n===Which type of Computer you want to use?====\n");
     printf("1 -- Gaming Computer Php 50.00   2 -- Non-Gaming Computer Php 30.00\n"); //gaming pc is php 50 and non-gaming pc is php 30 are fixed price and multiplied by hours of use 
@@ -135,9 +124,8 @@ Requierme, Sam
     //If the user inputs 0, it means there is no available cubicle
     //The user will then go to the cashier and ask for a cubicle number
 
-    printf("\n\n\n====Please take a cubicle number beside of the machine====\n");
-    printf("\nInput your cubicle number (1-30) if there none input (0)\n");
-    printf("\n>>>Enter your decision: ");
+    printf("\n\n\n====Please take a number beside of the machine====\n");
+    printf("\n>>>Input your cubicle number (1-30): ");
     scanf("%d", &cubicle);
 
     if (cubicle < 0 || cubicle > 30) {
@@ -145,28 +133,20 @@ Requierme, Sam
         return 0;
     }    
     else if (cubicle == 0) {
-        printf("\n\n\n====Go to the cashier for a cubicle mumber====\n");
-        printf("(Developer's note: enter any number from 1-30 as if your given one)\n");
+        printf("\n\n\n====Go to the cashier====\n");
         printf("\n>>>Enter the cubicle number given by the cashier: ");
         scanf("%d", &cubicle);
-        if (cubicle <= 0 || cubicle > 30) {
-            printf("\nERROR: Invalid Cubicle Input\n");
-            return 0;
-        }
     }
-    else 
-    {    
-        //nothing because if there is an else if, it must have an else function so it will run
+    else {    //nothing because if there is an else if, it must have an else function so it will run
     }
 
-    //addon section or decision section if the user wants to add drinks or food or both or none.
+    //addon section or decision section if the user wants to add drinks or food or both or none lol
 
     printf("\n\n\n===Would you like an Add-on?===\n");              
-    printf("0 -- No Thanks  1 -- Just Drinks   2 -- Just Snacks  3 -- I want Both (Drinks & Snacks)\n");
+    printf("0 -- No Thanks  1 -- Drinks   2 -- Snacks  3 -- Both (Drinks & Snacks)\n");
     printf("\n>>>Enter your decision: ");
     scanf("%d", &addon);
 
-    //addon decision, if user wants addon then it will display that he/she added or not. by Sam
     if (addon < 0 || addon > 3) {
         printf("\nERROR: Invalid Add-on Input\n");
         return 0;
@@ -183,10 +163,8 @@ Requierme, Sam
     else { 
         addonchoice = "Both (Drinks & Snacks)";
     } 
-    //this is Sam's code ends
 
-
-    //Drinks menu section_________________________________________________________(made by Fritz Gerald C. Prudente)
+    //Drinks menu section
     if (addon == 1 || addon == 3) {
     printf("\n\n---------------------_Coffee (Cup)_----------------------\n");
         printf("Item No.1 - Mocha - Php 85.00\n");
@@ -216,7 +194,7 @@ Requierme, Sam
         printf("\n>>>Enter your Drink Item No.: ");
         scanf("%d", &drinkitem);
 
-        if (drinkitem < 0 || drinkitem > 20) {
+        if (drinkitem < 1 || drinkitem > 20) {
             printf("\nERROR: Invalid selection input\n");
             return 0;
         } 
@@ -225,28 +203,18 @@ Requierme, Sam
             printf("\n\n===How much are you planning to refill?===\n");      
             printf("\n>>>Enter your decision: ");
             scanf("%d", &drinkQ);
-            if (drinkQ < 0) {
-                printf("\nERROR: Invalid input\n");
-                return 0;
-            }
+
         }
    
         else if (drinkitem >= 12) {
             printf("\n\n\n===How many cans are you going to buy?===\n");
             printf("\n>>>Enter your decision: ");
-            scanf("%d", &drinkQ);     
-            if (drinkQ < 0) {
-                printf("\nERROR: Invalid input\n");
-                return 0;
-            }
-        }  
-        else 
-        {
-            printf("\n==Drink Addon Cancelled==\n");
-        }   
+            scanf("%d", &drinkQ);
+        }
+        
     }
 
-    //food menu section_________________________________________________________(By yours truly hehe: Colinares, David Khael R.)
+    //food menu section
     if (addon == 2 || addon == 3) {  
         printf("\n\n\n==================== Food_Menu ====================\n");
         printf("-----------------_ Sandwiches _---------------------\n");
@@ -254,9 +222,9 @@ Requierme, Sam
         printf("Item No.2 - Ham and Cheese Sandwich - Php 35\n");
         printf("Item No.3 - Hotdog Sandwich - Php 45\n");
         printf("--------------------_ Pizza _------------------------\n");
-        printf("Item No.4 - Plain Cheese Pizza 7-inch - Php 100\n");
-        printf("Item No.5 - Pepperoni Pizza 7-inch - Php 150\n");
-        printf("Item No.6 - Hawaiian Pizza 7-inch - Php 150\n");
+        printf("Item No.4 - Plain Cheese Pizza (7/9/12-inch) - Php 100\n");
+        printf("Item No.5 - Pepperoni Pizza (7/9/12-inch) - Php 150\n");
+        printf("Item No.6 - Hawaiian Pizza (7/9/12-inch) - Php 150\n");
         printf("-------------------_ Quick_Snacks _-----------------\n");
         printf("Item No.7 - French Fries - Php 45\n");
         printf("Item No.8 - Chicken Nuggets - Php 50\n");
@@ -274,7 +242,7 @@ Requierme, Sam
         printf("=====================================================\n\n");
         printf("\n>>>Enter your Food Item No.: ");
         scanf("%d", &fooditem);
-            if (fooditem < 0 || fooditem > 17) {
+            if (fooditem < 1 || fooditem > 20) {
             printf("\nERROR: Invalid selection input\n");
             return 0;
         }
@@ -283,52 +251,29 @@ Requierme, Sam
             printf("\n\n\n===How much sandwiches are you going to buy?===\n");
             printf("\n>>>Enter your decision: ");
             scanf("%d", &foodQ);
-            if (foodQ < 0) {
-                printf("\nERROR: Invalid input\n");
-                return 0;
-            }
         }
         
         else if (fooditem >= 4 && fooditem <= 6) {   
             printf("\n\n\n===How many boxes of it are you going to buy?===\n");
             printf("\n>>>Enter your decision: ");
             scanf("%d", &foodQ);
-            if (foodQ < 0) {
-                printf("\nERROR: Invalid input\n");
-                return 0;
-            }            
         }
         else if (fooditem >= 7 && fooditem <= 13) {   
             printf("\n\n\n===How many sets are you going to buy?===\n");
             printf("\n>>>Enter your decision: ");
             scanf("%d", &foodQ);
-            if (foodQ < 0) {
-                printf("\nERROR: Invalid input\n");
-                return 0;
-            }            
         }
         else if (fooditem >= 14 && fooditem <= 15) {   
             printf("\n\n\n===How many bowls of noodles are you going to buy?===\n");
             printf("\n>>>Enter your decision: ");
             scanf("%d", &foodQ);
-            if (foodQ < 0) {
-                printf("\nERROR: Invalid input\n");
-                return 0;
-            }            
         }
-        else if (fooditem >= 16 && fooditem <= 17) {   
+        else {   
             printf("\n\n\n===How many desserts are you going to buy?===\n");
             printf("\n>>>Enter your decision: ");
             scanf("%d", &foodQ);
-            if (foodQ < 0) {
-                printf("\nERROR: Invalid input\n");
-                return 0;
-            }           
         }
-        else 
-        {
-            printf("\n==Food Addon Cancelled==\n");
-        }
+    }
 
     if (addon == 0){
         addonchoice = "No Addons";
@@ -347,7 +292,7 @@ Requierme, Sam
         printf("ERROR: Invalid input\n");
         return 0;
     }
-    if (membershipcard == 1) {                                               
+    if (membershipcard == 1) {                                               //WHY IS THERE SEGMENTATION FAULT?@?!?!?!?!?!?!IUWIJBFPQOD)I -dkc
         carddiscount = 0.15;  
     } else {
         printf("\n\n\n====Would you like to buy a membership card?====\n");
@@ -377,6 +322,8 @@ Requierme, Sam
 
 //drink item sprintf() ni David________________________________________________________________________   
      
+ 
+
 
     if(drinkitem == 1) {
         drinkprice = 85.00;
@@ -540,7 +487,7 @@ totalamount = foodtotal + drinktotal + cafecharge;
 discountedamount = totalamount * carddiscount;
 finalamount = (membershipcardfixedcost + totalamount) - discountedamount;
 
-//RECEIPT_____________________________________________________________________________
+//RECIEPT_____________________________________________________________________________
 
 printf("\n=====================RECEIPT=====================\n");
 printf("Computer Type: %s\n", typeofpc);
@@ -561,7 +508,7 @@ if (addon == 1) {
     printf("Food Total: Php %.2f\n", foodtotal);
 } else if (addon == 3) {
     printf("Drink Item: %s \n", drinktype);
-    printf("Drink Quantity: %d \n", drinkQ);
+    printf("Drink Quality: %d \n", drinkQ);
     printf("Drink Price: Php %.2f\n", drinkprice);
     printf("Drink Total: Php %.2f\n", drinktotal);
     printf("Food Item: %s\n", foodtype);
@@ -571,11 +518,11 @@ if (addon == 1) {
 }
 printf("Discount:  %.2f %%\n", carddiscount * 100); //:)) Php = No %% = Yes
 printf("Subtotal Amount: Php %.2f\n", totalamount);
-printf("Amount Discounted: Php %.2f\n", discountedamount);
+printf("Amount Discounted: Php -%.2f\n", discountedamount);
 printf("Total Amount: Php %.2f\n", finalamount);
 printf("=================================================\n");
 printf("          Cubicle Number: %d\n", cubicle);
-}
+
 
 
 
@@ -681,6 +628,7 @@ printf("          Cubicle Number: %d\n", cubicle);
 
 
 
+
 //⠀⠀⠀⠀⠀⠀  ⠀ ⣀⣀⣀⣀⣀⣠⣀⣀⣀⣠⡀⠀⠀⠀⠀⠀⠀⠀
 //⠀⠀⠀⠀⠀⠀  ⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
 //⠀⠀⠀⠀⠀  ⠀⠀ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
@@ -698,4 +646,3 @@ printf("          Cubicle Number: %d\n", cubicle);
 //⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀ ⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
                return 0;
 }
-```
